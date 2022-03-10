@@ -1,22 +1,32 @@
 const express = require("express");
+
+const path = __dirname + '/app/views/';
+
 const cors = require("cors");
 const app = express();
 var corsOptions = {
   origin: "http://localhost:8081"
 };
+
+app.use(express.static(path));
+
 app.use(cors(corsOptions));
 // parse requests of content-type - application/json
 app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 // simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to C3i ATR application." });
-});
+// app.get("/", (req, res) => {
+//   res.json({ message: "Welcome to C3i ATR application." });
+// });
 
 // routes
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
+
+app.get('/', function (req,res) {
+  res.sendFile(path + "index.html");
+});
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
