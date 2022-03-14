@@ -4,6 +4,7 @@
         <strong>{{ currentUser.username }}</strong> Profile
       </h3>
     </header>
+    <div class="content">
     <p>
       <strong>Token:</strong>
       {{ currentUser.accessToken.substring(0, 20) }} ...
@@ -20,6 +21,7 @@
       </li>
     </ul>
   </div>
+</div>
   <ng-template #loggedOut>
     Please login.
   </ng-template>
