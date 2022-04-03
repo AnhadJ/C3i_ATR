@@ -1,1 +1,35 @@
-<p>board-user works!</p>
+<h1 class="text">Monthly Report</h1> 
+<div class="row">    
+    <div class="form-bg">
+        <form [formGroup]='report' (ngSubmit)='PostData(report)'>    
+          <div class="form-group">
+            <label class="form-control-label">No. of Technologies</label>
+            <textarea cols="50" rows="10" type="text" class="form-control" formControlName='noOfTech'></textarea>
+          </div>    
+          <div class="form-group" >
+            <label class="form-control-label">IP</label>
+            <textarea type="text" class="form-control" formControlName="ip"></textarea>
+          </div>    
+          <div class="form-group">
+            <label class="form-control-label">Product</label>
+            <textarea type="text" class="form-control" formControlName="product"></textarea>
+          </div>    
+          <div class="form-group">
+            <label class="form-control-label">Thesis</label>
+            <textarea type="text" class="form-control" formControlName="thesis"></textarea>
+          </div>
+          <div class="form-group">    
+            <label class="form-control-label">Book</label>
+            <textarea type="text" class="form-control" formControlName="book"></textarea>
+          </div>
+          <div class="form-group">    
+            <label class="form-control-label">Paper</label>
+            <textarea type="text" class="form-control" formControlName="paper"></textarea>
+          </div>
+          <br>
+          <div>
+          <input type="submit" class="btn-primary" value="PostData">
+            </div>
+        </form>
+    </div>
+</div>
