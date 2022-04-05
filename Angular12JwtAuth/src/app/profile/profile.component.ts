@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
-import rp from '../../data.json';
+import rp from '../../assets/data.json';
 
 interface Report{
   month: String;
-  No_of_Technologies: Number;
-  IPs: Number;
-  Products: Number;
-  Thesis: Number;
-  Book: Number;
-  Paper: Number
+  No_of_Technologies: String;
+  IPs: String;
+  Products: String;
+  Thesis: String;
+  Book: String;
+  Paper: String
 }
-
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -20,10 +19,10 @@ interface Report{
 
 
 export class ProfileComponent implements OnInit {
+  reports: Report[] = rp;
   currentUser: any;
   constructor(private token: TokenStorageService) { }
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
   }
-  reports: Report[] = rp;
 }
