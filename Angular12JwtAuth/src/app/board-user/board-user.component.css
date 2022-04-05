@@ -1,0 +1,56 @@
+    h1{
+        color: #ECF0F5;
+        margin-top: 40px;
+        text-align: center;
+        font-size: 30px;
+        letter-spacing: 2px;
+        font-weight: bold;
+    }
+    .row{
+        padding-bottom: 5%;
+        margin-top: 8vh;
+    }
+    textarea[type=text] {
+        background-color: #1A2226;
+        border: none;
+        border-bottom: 2px solid #0DB8DE;
+        border-top: 0px;
+        border-radius: 0px;
+        font-weight: bold;
+        outline: 0;
+        margin-bottom: 20px;
+        padding-left: 0px;
+        color: #ECF0F5;
+        width: 100%;
+    }
+    .form-control{  
+        width: 170vh; 
+        height: 40px;  
+        color: black;  
+        border-color: black;  
+        background-color: cornsilk;  
+        border-radius: 1px;  
+        border-style: 0.5px;  
+    }
+    .form-control-label {
+        font-size: 10px;
+        color: #6C6C6C;
+        font-weight: bold;
+        letter-spacing: 1px;
+    }
+    .form-bg{
+        width: 100%;
+    }
+    .btn-primary{  
+        text-align: center;  
+        border-radius: 6px;  
+        background-color: #1976d2;  
+        width: 80px;  
+        height:30px;  
+        border-style: hidden;  
+        color: white;  
+    }  
+    .text{  
+        text-align: center;  
+        font-size: x-large;  
+    }  

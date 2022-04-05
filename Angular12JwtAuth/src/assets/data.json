@@ -1,0 +1,29 @@
+[   
+    {
+        "month": "April 2022",
+        "No_of_Technologies": "3",
+        "IPs": "1",
+        "Products": "2",
+        "Thesis": "0",
+        "Book": "0",
+        "Paper": "1"
+    },
+    {
+        "month": "May 2022",
+        "No_of_Technologies": "2",
+        "IPs": "0",
+        "Products": "3",
+        "Thesis": "1",
+        "Book": "0",
+        "Paper": "1"
+    },
+    {
+        "month": "June 2022",
+        "No_of_Technologies": "1",
+        "IPs": "5",
+        "Products": "1",
+        "Thesis": "0",
+        "Book": "1",
+        "Paper": "0"
+    }
+]
