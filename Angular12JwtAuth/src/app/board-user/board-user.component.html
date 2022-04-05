@@ -4,31 +4,31 @@
         <form [formGroup]='report' (ngSubmit)='PostData(report)'>    
           <div class="form-group">
             <label class="form-control-label">No. of Technologies</label>
-            <textarea cols="50" rows="10" type="text" class="form-control" formControlName='noOfTech'></textarea>
+            <input type="text" class="form-control" formControlName='noOfTech'>
           </div>    
           <div class="form-group" >
             <label class="form-control-label">IP</label>
-            <textarea type="text" class="form-control" formControlName="ip"></textarea>
+            <input type="text" class="form-control" formControlName="ip">
           </div>    
           <div class="form-group">
             <label class="form-control-label">Product</label>
-            <textarea type="text" class="form-control" formControlName="product"></textarea>
+            <input type="text" class="form-control" formControlName="product">
           </div>    
           <div class="form-group">
             <label class="form-control-label">Thesis</label>
-            <textarea type="text" class="form-control" formControlName="thesis"></textarea>
+            <input type="text" class="form-control" formControlName="thesis">
           </div>
           <div class="form-group">    
             <label class="form-control-label">Book</label>
-            <textarea type="text" class="form-control" formControlName="book"></textarea>
+            <input type="text" class="form-control" formControlName="book">
           </div>
           <div class="form-group">    
             <label class="form-control-label">Paper</label>
-            <textarea type="text" class="form-control" formControlName="paper"></textarea>
+            <input type="text" class="form-control" formControlName="paper">
           </div>
           <br>
           <div>
-          <input type="submit" class="btn-primary" value="PostData">
+          <input type="submit" class="btn-primary" value="Submit">
             </div>
         </form>
     </div>

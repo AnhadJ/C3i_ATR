@@ -7,7 +7,7 @@
         font-weight: bold;
     }
     .row{
-        
+        padding-bottom: 5%;
         margin-top: 8vh;
     }
     textarea[type=text] {
@@ -21,10 +21,9 @@
         margin-bottom: 20px;
         padding-left: 0px;
         color: #ECF0F5;
-        width: 50vw;
+        width: 100%;
     }
     .form-control{  
-        text-align: center;  
         width: 200px;  
         height: 40px;  
         color: black;  
@@ -38,6 +37,9 @@
         color: #6C6C6C;
         font-weight: bold;
         letter-spacing: 1px;
+    }
+    .form-bg{
+        width: 100%;
     }
     .btn-primary{  
         text-align: center;  

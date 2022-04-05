@@ -17,10 +17,14 @@ export class BoardUserComponent{
   constructor(private frmbuilder:FormBuilder) { 
     this.report=frmbuilder.group({
       noOfTech:['',[Validators.required,Validators.minLength(1)]],
+      ip:['',[Validators.required,Validators.minLength(1)]],
+      product:['',[Validators.required,Validators.minLength(1)]],
+      thesis:['',[Validators.required,Validators.minLength(1)]],
+      book:['',[Validators.required,Validators.minLength(1)]],
+      paper:['',[Validators.required,Validators.minLength(1)]],
     });
   }
 
-  
   PostData(report:any){  
     this.NoTech=report.controls.noOfTech.value;  
     this.IP=report.controls.ip.value;  
@@ -28,15 +32,13 @@ export class BoardUserComponent{
     this.Thesis=report.controls.thesis.value;
     this.Book=report.controls.book.value;
     this.Paper=report.controls.paper.value;
-  
-    console.log(this.NoTech);  
-    console.log(this.IP);  
-    console.log(this.Product);  
+    console.log(this.NoTech);
+    console.log(this.IP);
+    console.log(this.Product);
     console.log(this.Thesis);
     console.log(this.Book);
-    console.log(this.Paper);    
-  
-  console.log(report.controls);  
+    console.log(this.Paper);
+    console.log(report.controls);
   }  
 
 }
