@@ -10,7 +10,8 @@ exports.signup = (req, res) => {
   User.create({
     username: req.body.username,
     email: req.body.email,
-    password: bcrypt.hashSync(req.body.password, 8)
+    password: bcrypt.hashSync(req.body.password, 8),
+    dat: req.body.dat
   })
     .then(user => {
       if (req.body.roles) {
@@ -77,3 +78,19 @@ exports.signin = (req, res) => {
       res.status(500).send({ message: err.message });
     });
 };
+exports.repo = (req,res) => {
+  User.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+  .then(user=>{
+    if (!user) {
+      return res.status(404).send({ message: "User Not found." });
+    }
+    res.send({
+      username: "hello",
+      jsonObj: "sql"
+    });
+  })
+}

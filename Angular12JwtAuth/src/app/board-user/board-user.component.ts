@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder, NgForm,Validator, Validators } from '@angular/forms'
+import rp from '../../assets/data.json';
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -32,13 +33,18 @@ export class BoardUserComponent{
     this.Thesis=report.controls.thesis.value;
     this.Book=report.controls.book.value;
     this.Paper=report.controls.paper.value;
-    console.log(this.NoTech);
-    console.log(this.IP);
-    console.log(this.Product);
-    console.log(this.Thesis);
-    console.log(this.Book);
-    console.log(this.Paper);
-    console.log(report.controls);
+    var jsonObj = [];
+    var item:any = {};
+    item["month"] = this.NoTech;
+    item["No_of_Technologies"] = this.NoTech;
+    item["IPs"] = this.IP;
+    item["Products"] = this.Product;
+    item["Thesis"] = this.Thesis;
+    item["Book"] = this.Book;
+    item["Paper"] = this.Paper;
+    rp.push(item);
+    console.log(rp);
+    
   }  
 
 }
