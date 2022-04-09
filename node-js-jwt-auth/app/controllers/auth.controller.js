@@ -70,13 +70,15 @@ exports.signin = (req, res) => {
           username: user.username,
           email: user.email,
           roles: authorities,
-          accessToken: token
+          accessToken: token,
+          dat: user.dat
         });
       });
     })
     .catch(err => {
       res.status(500).send({ message: err.message });
     });
+
 };
 exports.repo = (req,res) => {
   User.findOne({
