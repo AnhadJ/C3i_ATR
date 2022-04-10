@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl,FormGroup,FormBuilder, NgForm,Validator, Validators } from '@angular/forms'
 import { TokenStorageService } from '../_services/token-storage.service';
-import rp from '../../assets/data.json';
+
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -10,7 +10,8 @@ import rp from '../../assets/data.json';
 export class BoardUserComponent{
   currentUser: any;
   jsonObj: any;
-  report:FormGroup;  
+  report:FormGroup;
+  month:string="";
   NoTech:string="";  
   IP:string="";  
   Product:string="";  
@@ -19,6 +20,7 @@ export class BoardUserComponent{
   Paper:string="";  
   constructor(private frmbuilder:FormBuilder, private token: TokenStorageService) { 
     this.report=frmbuilder.group({
+      month:['',[Validators.required,Validators.minLength(1)]],
       noOfTech:['',[Validators.required,Validators.minLength(1)]],
       ip:['',[Validators.required,Validators.minLength(1)]],
       product:['',[Validators.required,Validators.minLength(1)]],
@@ -28,10 +30,11 @@ export class BoardUserComponent{
     });
     this.currentUser = this.token.getUser();
     this.jsonObj = JSON.parse(this.currentUser.dat);
-    console.log(this.jsonObj);
+    // console.log(this.jsonObj);
   }
   PostData(report:any){ 
     var output: JSON;
+    this.month=report.controls.month.value;
     this.NoTech=report.controls.noOfTech.value;  
     this.IP=report.controls.ip.value;  
     this.Product=report.controls.product.value;  
@@ -40,7 +43,7 @@ export class BoardUserComponent{
     this.Paper=report.controls.paper.value;
 
     var item:any = {};
-    item["month"] = this.NoTech;
+    item["month"] = this.month;
     item["No_of_Technologies"] = this.NoTech;
     item["IPs"] = this.IP;
     item["Products"] = this.Product;
@@ -48,13 +51,8 @@ export class BoardUserComponent{
     item["Book"] = this.Book;
     item["Paper"] = this.Paper;
     output = <JSON>item;
-    console.log(item);
-    console.log(typeof this.jsonObj);
-    console.log(typeof output);
-    // this.jsonObj=this.jsonObj.concat(output);
     this.jsonObj.push(output);
     console.log(this.jsonObj);
-    
+    // this.report.reset;
   }  
-
 }
