@@ -19,9 +19,11 @@ interface Report{
 })
 
 export class ProfileComponent implements OnInit {
-  reports: Report[] = rp;
-  currentUser: any;
+
   jsonObj: any;
+  // this.jsonObj = JSON.parse(this.currentUser.dat);
+  reports: any;
+  currentUser: any;
   constructor(private token: TokenStorageService, private authService: AuthService) { }
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
@@ -35,5 +37,8 @@ export class ProfileComponent implements OnInit {
       }
     );
     // console.log(this.jsonObj+"hello");
+    this.jsonObj = JSON.parse(this.currentUser.dat);
+    this.reports = this.jsonObj;
+    console.log(this.reports);
   }
 }

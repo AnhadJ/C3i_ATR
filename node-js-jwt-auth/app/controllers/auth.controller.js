@@ -90,10 +90,17 @@ exports.repo = (req,res) => {
     if (!user) {
       return res.status(404).send({ message: "User Not found." });
     }
+<<<<<<< HEAD
     // res.send({
     //   username: "hello",
     //   jsonObj: "sql"
     // });
     res.status(200).send({dat:user.dat});
+=======
+    User.update(
+      { dat: req.body.dat},
+      { where:{ username: req.body.username}}
+    )
+>>>>>>> b9ec651a7723609ce25606b43f3cf073b4d1508b
   })
 }

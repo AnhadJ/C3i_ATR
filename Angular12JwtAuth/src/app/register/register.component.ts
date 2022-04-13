@@ -12,7 +12,7 @@ export class RegisterComponent implements OnInit {
     email: null,
     password: null
   };
-  dat="";
+  dat="[]";
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
