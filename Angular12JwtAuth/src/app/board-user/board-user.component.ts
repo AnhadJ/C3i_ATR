@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 import {FormControl,FormGroup,FormBuilder, NgForm,Validator, Validators } from '@angular/forms'
 import { TokenStorageService } from '../_services/token-storage.service';
 import rp from '../../assets/data.json';
@@ -17,7 +18,7 @@ export class BoardUserComponent{
   Thesis:string="";  
   Book:string="";  
   Paper:string="";  
-  constructor(private frmbuilder:FormBuilder, private token: TokenStorageService) { 
+  constructor(public authService: AuthService, private frmbuilder:FormBuilder, private token: TokenStorageService) { 
     this.report=frmbuilder.group({
       noOfTech:['',[Validators.required,Validators.minLength(1)]],
       ip:['',[Validators.required,Validators.minLength(1)]],
@@ -30,7 +31,7 @@ export class BoardUserComponent{
     this.jsonObj = JSON.parse(this.currentUser.dat);
     console.log(this.jsonObj);
   }
-  PostData(report:any){ 
+  OnSubmit(report: any): void{ 
     var output: JSON;
     this.NoTech=report.controls.noOfTech.value;  
     this.IP=report.controls.ip.value;  
@@ -54,7 +55,7 @@ export class BoardUserComponent{
     // this.jsonObj=this.jsonObj.concat(output);
     this.jsonObj.push(output);
     console.log(this.jsonObj);
-    
+    this.authService.report(this.currentUser.username, this.jsonObj);
   }  
 
 }
