@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../_services/auth.service';
 import {FormControl,FormGroup,FormBuilder, NgForm,Validator, Validators } from '@angular/forms'
 import { TokenStorageService } from '../_services/token-storage.service';
-import rp from '../../assets/data.json';
+
 @Component({
   selector: 'app-board-user',
   templateUrl: './board-user.component.html',
@@ -10,15 +11,17 @@ import rp from '../../assets/data.json';
 export class BoardUserComponent{
   currentUser: any;
   jsonObj: any;
-  report:FormGroup;  
+  report:FormGroup;
+  month:string="";
   NoTech:string="";  
   IP:string="";  
   Product:string="";  
   Thesis:string="";  
   Book:string="";  
   Paper:string="";  
-  constructor(private frmbuilder:FormBuilder, private token: TokenStorageService) { 
+  constructor(public authService: AuthService, private frmbuilder:FormBuilder, private token: TokenStorageService) { 
     this.report=frmbuilder.group({
+      month:['',[Validators.required,Validators.minLength(1)]],
       noOfTech:['',[Validators.required,Validators.minLength(1)]],
       ip:['',[Validators.required,Validators.minLength(1)]],
       product:['',[Validators.required,Validators.minLength(1)]],
@@ -28,10 +31,11 @@ export class BoardUserComponent{
     });
     this.currentUser = this.token.getUser();
     this.jsonObj = JSON.parse(this.currentUser.dat);
-    console.log(this.jsonObj);
+    // console.log(this.jsonObj);
   }
-  PostData(report:any){ 
+  OnSubmit(report: any): void{ 
     var output: JSON;
+    this.month=report.controls.month.value;
     this.NoTech=report.controls.noOfTech.value;  
     this.IP=report.controls.ip.value;  
     this.Product=report.controls.product.value;  
@@ -40,7 +44,7 @@ export class BoardUserComponent{
     this.Paper=report.controls.paper.value;
 
     var item:any = {};
-    item["month"] = this.NoTech;
+    item["month"] = this.month;
     item["No_of_Technologies"] = this.NoTech;
     item["IPs"] = this.IP;
     item["Products"] = this.Product;
@@ -48,13 +52,12 @@ export class BoardUserComponent{
     item["Book"] = this.Book;
     item["Paper"] = this.Paper;
     output = <JSON>item;
-    console.log(item);
-    console.log(typeof this.jsonObj);
-    console.log(typeof output);
-    // this.jsonObj=this.jsonObj.concat(output);
     this.jsonObj.push(output);
     console.log(this.jsonObj);
-    
+<<<<<<< HEAD
+    this.authService.report(this.currentUser.username, this.jsonObj);
+=======
+    // this.report.reset;
+>>>>>>> b9ec651a7723609ce25606b43f3cf073b4d1508b
   }  
-
 }

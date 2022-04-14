@@ -6,7 +6,6 @@ const Op = db.Sequelize.Op;
 var jwt = require("jsonwebtoken");
 var bcrypt = require("bcryptjs");
 exports.signup = (req, res) => {
-  // Save User to Database
   User.create({
     username: req.body.username,
     email: req.body.email,
@@ -90,9 +89,10 @@ exports.repo = (req,res) => {
     if (!user) {
       return res.status(404).send({ message: "User Not found." });
     }
-    res.send({
-      username: "hello",
-      jsonObj: "sql"
-    });
+
+    User.update(
+      { dat: req.body.dat},
+      { where:{ username: req.body.username}}
+    )
   })
 }

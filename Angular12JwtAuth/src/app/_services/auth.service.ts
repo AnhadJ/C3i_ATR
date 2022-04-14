@@ -26,9 +26,10 @@ export class AuthService {
       dat
     }, httpOptions);
   }
-  report(username: string): Observable<any>{
+  report(username: string, dat: string): Observable<any>{
     return this.http.post(AUTH_API + 'repo', {
-      username
+      username,
+      dat
   },httpOptions);
   }
 }
