@@ -54,10 +54,6 @@ export class BoardUserComponent{
     output = <JSON>item;
     this.jsonObj.push(output);
     console.log(this.jsonObj);
-<<<<<<< HEAD
-    this.authService.report(this.currentUser.username, this.jsonObj);
-=======
-    // this.report.reset;
->>>>>>> b9ec651a7723609ce25606b43f3cf073b4d1508b
+    //this.authService.report(this.currentUser.username, this.jsonObj);
   }  
 }
