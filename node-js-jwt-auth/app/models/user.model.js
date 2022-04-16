@@ -11,7 +11,7 @@ module.exports = (sequelize, Sequelize) => {
       },
       dat:
       {
-        type: Sequelize.STRING
+        type: Sequelize.STRING(8192)
       }
     });
     return User;

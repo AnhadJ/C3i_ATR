@@ -27,15 +27,8 @@ export class ProfileComponent implements OnInit {
   constructor(private token: TokenStorageService, private authService: AuthService) { }
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    this.jsonObj = this.authService.report(this.currentUser.username)
     console.log(this.currentUser);
     // console.log(this.jsonObj);
-
-    this.authService.report(this.currentUser.username).subscribe(
-      data => {
-        this.jsonObj=this.authService.report(this.currentUser.username)
-      }
-    );
     // console.log(this.jsonObj+"hello");
     this.jsonObj = JSON.parse(this.currentUser.dat);
     this.reports = this.jsonObj;

@@ -56,6 +56,7 @@ exports.signin = (req, res) => {
           message: "Invalid Password!"
         });
       }
+      console.log("hello");
       var token = jwt.sign({ id: user.id }, config.secret, {
         expiresIn: 86400 // 24 hours
       });
@@ -80,23 +81,8 @@ exports.signin = (req, res) => {
 
 };
 exports.repo = (req,res) => {
-  User.findOne({
-    where: {
-      username: req.body.username
-    }
-  })
-  .then(user=>{
-    if (!user) {
-      return res.status(404).send({ message: "User Not found." });
-    }
-    // res.send({
-    //   username: "hello",
-    //   jsonObj: "sql"
-    // });
-    res.status(200).send({dat:user.dat});
     User.update(
       { dat: req.body.dat},
       { where:{ username: req.body.username}}
     )
-  })
 }
