@@ -33,7 +33,7 @@ export class BoardUserComponent{
     this.jsonObj = JSON.parse(this.currentUser.dat);
     // console.log(this.jsonObj);
   }
-  OnSubmit(report: any): void{ 
+  PostData(report: any): void{ 
     var output: JSON;
     this.month=report.controls.month.value;
     this.NoTech=report.controls.noOfTech.value;  
@@ -54,6 +54,10 @@ export class BoardUserComponent{
     output = <JSON>item;
     this.jsonObj.push(output);
     console.log(this.jsonObj);
-    //this.authService.report(this.currentUser.username, this.jsonObj);
+    this.authService.report(this.currentUser.username, JSON.stringify(this.jsonObj)).subscribe(
+      data => {
+        console.log(data);
+      }
+    );
   }  
 }
