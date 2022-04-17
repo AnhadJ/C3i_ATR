@@ -17,6 +17,7 @@ const sequelize = new Sequelize(
   }
 );
 const db = {};
+sequelize.sync()
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
@@ -31,5 +32,5 @@ db.user.belongsToMany(db.role, {
   foreignKey: "userId",
   otherKey: "roleId"
 });
-db.ROLES = ["user", "admin", "moderator"];
+db.ROLES = ["user", "admin"];
 module.exports = db;

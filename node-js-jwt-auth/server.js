@@ -24,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
 
-app.get('/', function (req,res) {
+app.get('/', function (req,res) {true
   res.sendFile(path + "index.html");
 });
 
@@ -36,24 +36,4 @@ app.listen(PORT, () => {
 
 const db = require("./app/models");
 const Role = db.role;
-db.sequelize.sync({force: true}).then(() => {
-  console.log('Drop and Resync Db');
-  initial();
-});
-
-function initial() {
-    Role.create({
-      id: 1,
-      name: "user"
-    });
-   
-    Role.create({
-      id: 2,
-      name: "moderator"
-    });
-   
-    Role.create({
-      id: 3,
-      name: "admin"
-    });
-}
+db.sequelize.sync({force: false});
