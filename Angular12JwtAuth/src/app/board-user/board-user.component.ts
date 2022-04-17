@@ -59,5 +59,6 @@ export class BoardUserComponent{
         console.log(data);
       }
     );
+    this.report.reset();
   }  
 }

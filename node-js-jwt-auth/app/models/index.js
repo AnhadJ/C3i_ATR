@@ -17,7 +17,7 @@ const sequelize = new Sequelize(
   }
 );
 const db = {};
-sequelize.sync()
+// sequelize.sync()
 db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 db.user = require("../models/user.model.js")(sequelize, Sequelize);
