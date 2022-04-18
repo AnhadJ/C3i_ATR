@@ -4,3 +4,12 @@
 th,td{
     color: white;
 }
+.btn-primary{  
+    text-align: center;  
+    border-radius: 6px;  
+    background-color: #444c55;  
+    width: 80px;  
+    height:30px;  
+    border-style: hidden;  
+    color: white;  
+}  

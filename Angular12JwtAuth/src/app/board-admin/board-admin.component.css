@@ -4,3 +4,11 @@
 th,td{
     color: white;
 }
+.btn-primary{
+    text-align: center;    
+    background-color: #444c55;  
+    width: 6%;  
+    height:100%;  
+    border-style: hidden;  
+    color: white; 
+}
