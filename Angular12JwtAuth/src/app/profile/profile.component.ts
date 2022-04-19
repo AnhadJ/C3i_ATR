@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../_services/token-storage.service';
 import { AuthService } from '../_services/auth.service';
-import rp from '../../assets/data.json';
 
 interface Report{
   month: String;
