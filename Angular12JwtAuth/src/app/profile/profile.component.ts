@@ -37,6 +37,12 @@ export class ProfileComponent implements OnInit {
   exportCsv() {
     this.downloadFile(this.jsonObj);
   }
+  onClick(): void{
+    this.reloadPage();
+  }
+  reloadPage(): void {
+    window.location.reload();
+  }
 
   downloadFile(data:JSON, filename = 'Report') {
     let arrHeader = ["month", "No_of_Technologies", "IPs", "Products", "Thesis", "Book", "Paper"];
