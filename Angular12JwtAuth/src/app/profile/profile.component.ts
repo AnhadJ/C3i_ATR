@@ -26,12 +26,12 @@ export class ProfileComponent implements OnInit {
   constructor(private token: TokenStorageService, private authService: AuthService) { }
   ngOnInit(): void {
     this.currentUser = this.token.getUser();
-    console.log(this.currentUser);
+    // console.log(this.currentUser);
     // console.log(this.jsonObj);
     // console.log(this.jsonObj+"hello");
     this.jsonObj = JSON.parse(this.currentUser.dat);
     this.reports = this.jsonObj;
-    console.log(this.reports);
+    // console.log(this.reports);
   }
 
   exportCsv() {
@@ -60,7 +60,7 @@ export class ProfileComponent implements OnInit {
     // console.log(objArray);
     // console.log(headerList);
     let array = typeof objArray!='object'?JSON.parse(objArray) : objArray;
-    console.log(array);
+    // console.log(array);
     let str = '';
     let row = 'S.No,';
     let newHeaders = ["Month", "No. of Technologies", "IPs", "Products", "Thesis", "Books", "Papers"];
@@ -74,7 +74,7 @@ export class ProfileComponent implements OnInit {
       for (let index in headerList) {
         let head = headerList[index];
         line += ',' + array[i][head];
-        console.log(array[i]);
+        // console.log(array[i]);
       }
       str += line + '\r\n';
     }

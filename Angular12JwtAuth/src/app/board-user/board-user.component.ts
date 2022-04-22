@@ -53,10 +53,10 @@ export class BoardUserComponent{
     item["Paper"] = this.Paper;
     output = <JSON>item;
     this.jsonObj.push(output);
-    console.log(this.jsonObj);
+    // console.log(this.jsonObj);
     this.authService.report(this.currentUser.username, JSON.stringify(this.jsonObj)).subscribe(
       data => {
-        console.log(data);
+        // console.log(data);
       }
     );
     this.report.reset();
