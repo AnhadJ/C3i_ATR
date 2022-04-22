@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { delay } from 'rxjs';
 import { AuthService } from '../_services/auth.service';
 import { TokenStorageService } from '../_services/token-storage.service';
 @Component({
@@ -24,6 +25,11 @@ export class LoginComponent implements OnInit {
   }
   onSubmit(): void {
     const { username, password } = this.form;
+    this.authService.getAll().subscribe(
+      data => {
+        this.tokenStorage.saveAdmin(data);
+      }
+    );
     this.authService.login(username, password).subscribe(
       data => {
         this.tokenStorage.saveToken(data.accessToken);
@@ -38,6 +44,19 @@ export class LoginComponent implements OnInit {
         this.isLoginFailed = true;
       }
     );
+    // if(!this.roles.some(x => x ==="admin"))
+    // {
+    //   // console.log("YUP");
+    //   this.authService.getAll().subscribe(
+    //     data => {
+    //       this.tokenStorage.saveAdmin(data);
+    //     }
+    //   )
+    //   // this.reloadPage();
+    // }
+  }
+  onClick(): void{
+    this.reloadPage();
   }
   reloadPage(): void {
     window.location.reload();

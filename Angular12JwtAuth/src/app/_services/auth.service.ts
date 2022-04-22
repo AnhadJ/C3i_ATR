@@ -32,4 +32,7 @@ export class AuthService {
       dat
   },httpOptions);
   }
+  getAll(){
+    return this.http.post(AUTH_API + 'getall', httpOptions);
+  }
 }
