@@ -14,5 +14,6 @@ Dependencies:<br>
 -> Angular 12<br>
 -> Node v16<br>
 -> mySQL ver8<br><br>
-Name: Anhad Jagdish, Roushan Prakash, Gurugubelli Navya<br>
+Name: Anhad Jagdish<br>
+Department: Material Sciences and Engineering<br>
 University: IIT Kanpur<br>
