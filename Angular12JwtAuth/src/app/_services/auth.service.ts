@@ -35,4 +35,11 @@ export class AuthService {
   getAll(){
     return this.http.post(AUTH_API + 'getall', httpOptions);
   }
+  reset(username: string, password: string, npassword: string): Observable<any> {
+    return this.http.post(AUTH_API + 'reset', {
+      username,
+      password,
+      npassword
+    }, httpOptions);
+  }
 }

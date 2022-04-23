@@ -94,3 +94,32 @@ exports.getall = (req, res) => {
       });
     })
 };
+
+exports.reset = (req, res) => {
+  User.findOne({
+    where: {
+      username: req.body.username
+    }
+  })
+    .then(user => {
+      if (!user) {
+        return res.status(404).send({ message: "User Not found." });
+      }
+      var passwordIsValid = bcrypt.compareSync(
+        req.body.password,
+        user.password
+      );
+      if (!passwordIsValid) {
+        return res.status(401).send({
+          accessToken: null,
+          message: "Invalid Old Password!"
+        });
+      }
+      User.update(
+        {password: bcrypt.hashSync(req.body.npassword, 8)},
+        { where:{ username: req.body.username}}
+      )
+      return res.status(200).send({ message: "Password changed successfully"});
+    })
+
+};

@@ -38,21 +38,21 @@ const db = require("./app/models");
 const Role = db.role;
 
 /*comment for first time usage*/
-db.sequelize.sync({force: false})   
+// db.sequelize.sync({force: false})
 
 /*uncomment for first usage*/
-// db.sequelize.sync({force: true}).then(() => {
-//   console.log('Drop and Resync Db');
-//   initial();
-// });
+db.sequelize.sync({force: true}).then(() => {
+  console.log('Drop and Resync Db');
+  initial();
+});
 
-// function initial() {
-//     Role.create({
-//       id: 1,
-//       name: "user"
-//     });
-//     Role.create({
-//       id: 2,
-//       name: "admin"
-//     });
-// }
+function initial() {
+    Role.create({
+      id: 1,
+      name: "user"
+    });
+    Role.create({
+      id: 2,
+      name: "admin"
+    });
+}
